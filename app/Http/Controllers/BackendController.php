@@ -1,0 +1,73 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Attendance;
+use App\User;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+
+class BackendController extends Controller
+{
+    public function login(Request $request)
+    {
+        $validator=Validator::make($request->all(),['email'=>'required|email',
+                            'password'=>'required|string']);
+
+        if ($validator->fails()){
+            return response()->json(['success'=>false, 'message'=>$validator->errors()]);
+        }
+        $credentials = [
+            'email' => $request['email'],
+            'password' => $request['password'],
+        ];
+
+        if (Auth::attempt($credentials)) {
+           return response()->json(['success'=>true, 'message'=>'Success', 'user'=>Auth::user()]);
+        }else{
+          return  response()->json(['success'=>false, 'message'=>'Invalid Credentials']);
+        }
+    }
+
+    public function checkin(Request $request)
+    {
+        $validator=Validator::make($request->all(),['user_id'=>'required|exists:users,id',
+                              'lat'=>'required',
+                              'lng'=>'required']);
+
+        if ($validator->fails()){
+            return response()->json(['success'=>false, 'message'=>$validator->errors()]);
+        }
+
+          $data=$request->all();
+          $data['time_in']= Carbon::now();
+          $item=Attendance::create($data);
+          return response()->json(['success'=>true, 'message'=>'Saved Successfully','attendance'=>$item]);
+    }
+
+    public function checkout(Request $request)
+    {
+        $validator=Validator::make($request->all(),[
+            'user_id'=>'required|exists:users,id',
+            'attendance_id'=>'required|exists:attendances,id',
+            ]);
+        if ($validator->fails()){
+            return response()->json(['success'=>false, 'message'=>$validator->errors()]);
+        }
+        $record= Attendance::where(['user_id'=>$request->user_id,'id'=>$request->attendance_id])->first();
+        $record->time_out=Carbon::now();
+        $record->save();
+        return response()->json(['success'=>true, 'message'=>'Saved Successfully','attendance'=>$record]);
+    }
+
+    public function getAttendance(Request $request)
+    {
+        $request->validate([
+            'user_id'=>'required|exists:users,id'
+        ]);
+        $all = User::with('records')->find($request->user_id);
+        return response()->json(['success'=>true, 'message'=>'Saved Successfully','data'=>$all]);
+    }
+}
