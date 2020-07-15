@@ -52,12 +52,15 @@ class BackendController extends Controller
         $validator=Validator::make($request->all(),[
             'user_id'=>'required|exists:users,id',
             'attendance_id'=>'required|exists:attendances,id',
-            ]);
+            'lat_out'=>'required',
+            'long_out'=>'required']);
         if ($validator->fails()){
             return response()->json(['success'=>false, 'message'=>$validator->errors()]);
         }
         $record= Attendance::where(['user_id'=>$request->user_id,'id'=>$request->attendance_id])->first();
         $record->time_out=Carbon::now();
+        $record->lat_out=$request.lat_out;
+        $record->long_out=$request.long_out;
         $record->save();
         return response()->json(['success'=>true, 'message'=>'Saved Successfully','attendance'=>$record]);
     }
