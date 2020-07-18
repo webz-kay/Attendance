@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed9709f3-d9a5-4943-922e-2a78dd06f3b2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_07_14_134655_add_lat_out_and_long_out_to_attendances.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Attendance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Attendance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_14_134655_add_lat_out_and_long_out_to_attendances.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_14_134655_add_lat_out_and_long_out_to_attendances.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +135,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -156,7 +162,10 @@
       <workItem from="1594646152492" duration="1510000" />
       <workItem from="1594722219558" duration="4819000" />
       <workItem from="1594814647622" duration="620000" />
-      <workItem from="1594838787543" duration="1549000" />
+      <workItem from="1594838787543" duration="2201000" />
+      <workItem from="1594854378717" duration="11826000" />
+      <workItem from="1594989462575" duration="2678000" />
+      <workItem from="1595008657789" duration="12293000" />
     </task>
     <task id="LOCAL-00001" summary="added columns lat_out and long_out">
       <created>1594724513220</created>
@@ -172,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594839423082</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added columns lat_out and long_out">
+      <created>1594840503150</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1594840503150</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,18 +199,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="added columns lat_out and long_out" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1594839421971">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1594840502468">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1594839421971" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1594840502468" />
     <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1594382259776">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1594382259776" />
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1594724567761">
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1595068248286">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1594724567761" />
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1595068248286" />
     <state x="384" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1594040256963">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -203,10 +219,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="492" y="286" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1594839444792" />
-    <state x="339" y="165" key="run.anything.popup" timestamp="1594045640671">
+    <state x="339" y="165" key="run.anything.popup" timestamp="1594992555739">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1594045640671" />
+    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1594992555739" />
     <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1594724764181">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

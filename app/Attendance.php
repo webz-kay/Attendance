@@ -15,7 +15,7 @@ class Attendance extends Model
 
     protected $appends=["timeAppIn","timeAppOut","dateChekin"];
 
-    public function owner()
+    public function user()
     {
        return $this->belongsTo(User::class);
     }

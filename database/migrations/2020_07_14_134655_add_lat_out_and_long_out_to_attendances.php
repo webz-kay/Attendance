@@ -15,8 +15,8 @@ class AddLatOutAndLongOutToAttendances extends Migration
     {
         Schema::table('attendances', function (Blueprint $table) {
             //New two columns
-            $table->double('lat_out')->after('lng');
-            $table->double('long_out')->after('lat_out');
+            $table->double('lat_out')->after('lng')->nullable();
+            $table->double('long_out')->after('lat_out')->nullable();;
         });
     }
 

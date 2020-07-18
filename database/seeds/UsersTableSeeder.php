@@ -11,8 +11,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\User::create(['email'=>'webz1@gmail.com','name'=>'Andy One','password'=>bcrypt('password')]);
-        \App\User::create(['email'=>'webz2@gmail.com','name'=>'Andy Two','password'=>bcrypt('password')]);
-        \App\User::create(['email'=>'webz3@gmail.com','name'=>'Andy Three','password'=>bcrypt('password')]);
+        \App\User::create(['email'=>'webz@gmail.com','wsys_no'=>'1212','name'=>'Andy Webz','password'=>bcrypt('password')]);
+        \App\User::create(['email'=>'kamande@gmail.com','wsys_no'=>'1313','name'=>'Kamande Boss','password'=>bcrypt('password')]);
+        \App\User::create(['email'=>'ron@gmail.com','wsys_no'=>'1414','name'=>'Ron Sim','password'=>bcrypt('password')]);
     }
 }

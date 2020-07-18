@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Attendance;
+use App\DailyLog;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -44,6 +45,12 @@ class BackendController extends Controller
           $data=$request->all();
           $data['time_in']= Carbon::now();
           $item=Attendance::create($data);
+
+          //dd($item->user);
+
+          DailyLog::create([
+              'attendance_id'=>$item->id,'wsys_no'=>$item->user->wsys_no,'status'=>"IN",'latitude'=>$request->lat,'longitude'=>$request->lng
+          ]);
           return response()->json(['success'=>true, 'message'=>'Saved Successfully','attendance'=>$item]);
     }
 
@@ -58,9 +65,13 @@ class BackendController extends Controller
             return response()->json(['success'=>false, 'message'=>$validator->errors()]);
         }
         $record= Attendance::where(['user_id'=>$request->user_id,'id'=>$request->attendance_id])->first();
+
+        DailyLog::create([
+            'attendance_id'=>$record->id,'wsys_no'=>$record->user->wsys_no,'status'=>"OUT",'latitude'=>$request->lat_out,'longitude'=>$request->long_out
+        ]);
         $record->time_out=Carbon::now();
-        $record->lat_out=$request.lat_out;
-        $record->long_out=$request.long_out;
+        $record->lat_out=$request->lat_out;
+        $record->long_out=$request->long_out;
         $record->save();
         return response()->json(['success'=>true, 'message'=>'Saved Successfully','attendance'=>$record]);
     }
