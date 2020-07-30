@@ -26,6 +26,13 @@ class BackendController extends Controller
         ];
 
         if (Auth::attempt($credentials)) {
+            try {
+                $user= Auth::user();
+                $user->device_id = $request->device_id;
+                $user->save();
+            }catch (\Exception $e){
+                return  response()->json(['success'=>false, 'message'=>'Device already used by another user']);
+            }
            return response()->json(['success'=>true, 'message'=>'Success', 'user'=>Auth::user()]);
         }else{
           return  response()->json(['success'=>false, 'message'=>'Invalid Credentials']);
